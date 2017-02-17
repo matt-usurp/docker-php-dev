@@ -2,6 +2,8 @@ FROM php:7.1.1-cli
 
 RUN apt-get update -y \
  && apt-get install -y \
+      zsh \
+      git \
       libicu-dev \
       libmcrypt-dev \
       libpq-dev \
@@ -10,6 +12,9 @@ RUN apt-get update -y \
       libmcrypt-dev \
       libpng12-dev \
  && rm -rf /var/lib/apt/lists/* \
+
+ && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
+ && sudo sed -i 's~robbyrussell~geoffgarside~g' ~/.zshrc \
 
  && docker-php-ext-install \
       pdo \
