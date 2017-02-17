@@ -13,7 +13,7 @@ RUN apt-get update -y \
       libpng12-dev \
  && rm -rf /var/lib/apt/lists/* \
 
- && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
+ && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
  && sudo sed -i 's~robbyrussell~geoffgarside~g' ~/.zshrc \
 
  && docker-php-ext-install \
