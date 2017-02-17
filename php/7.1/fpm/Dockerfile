@@ -14,7 +14,8 @@ RUN apt-get update -y \
  && rm -rf /var/lib/apt/lists/* \
 
  && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
- && sudo sed -i 's~robbyrussell~geoffgarside~g' ~/.zshrc \
+ && sed -i 's~robbyrussell~geoffgarside~g' ~/.zshrc \
+ && sed -i 's/plugins=(git)/plugins=(git composer symfony2)/g' /root/.zshrc \
 
  && docker-php-ext-install \
       pdo \
