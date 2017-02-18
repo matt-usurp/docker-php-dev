@@ -17,6 +17,9 @@ RUN apt-get update -y \
  && sed -i 's~robbyrussell~kolo~g' ~/.zshrc \
  && sed -i 's/plugins=(git)/plugins=(git composer symfony2)/g' /root/.zshrc \
 
+ && curl -sS "https://getcomposer.org/installer?v=1.3.1" | php \
+ && mv composer.phar /usr/bin/composer \
+
  && docker-php-ext-install \
       pdo \
       pdo_pgsql \
