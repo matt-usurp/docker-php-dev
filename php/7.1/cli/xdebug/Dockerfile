@@ -15,7 +15,7 @@ RUN apt-get update -y \
 
  && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
  && sed -i 's~robbyrussell~kolo~g' ~/.zshrc \
- && sed -i 's/plugins=(git)/plugins=(git composer symfony2)/g' /root/.zshrc \
+ && sed -i 's/plugins=(git)/plugins=(composer symfony2)/g' /root/.zshrc \
 
  && curl -sS "https://getcomposer.org/installer?v=1.3.1" | php \
  && mv composer.phar /usr/bin/composer \
