@@ -9,7 +9,6 @@ RUN apt-get update -y \
       libpq-dev \
       libfreetype6-dev \
       libjpeg62-turbo-dev \
-      libmcrypt-dev \
       libpng12-dev \
  && rm -rf /var/lib/apt/lists/* \
 
