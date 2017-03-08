@@ -7,9 +7,6 @@ RUN apt-get update -y \
       libicu-dev \
       libmcrypt-dev \
       libpq-dev \
-      libfreetype6-dev \
-      libjpeg62-turbo-dev \
-      libpng12-dev \
  && rm -rf /var/lib/apt/lists/* \
 
  && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
@@ -22,11 +19,11 @@ RUN apt-get update -y \
  && docker-php-ext-install \
       pdo \
       pdo_pgsql \
+      pgsql \
       intl \
       mbstring \
-      zip \
       mcrypt \
-      pgsql \
+      zip \
 
  && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/
 
