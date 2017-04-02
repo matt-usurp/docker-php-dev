@@ -26,3 +26,5 @@ RUN apt-get update -y \
       zip \
 
  && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/
+
+WORKDIR /opt/project
