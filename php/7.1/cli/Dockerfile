@@ -28,9 +28,9 @@ RUN apt-get update -y \
 
  && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
 
- && apt-get purge --auto-remove libicu-dev \
- && apt-get purge --auto-remove libmcrypt-dev \
- && apt-get purge --auto-remove libpq-dev \
+ && apt-get purge -y --auto-remove libicu-dev \
+ && apt-get purge -y --auto-remove libmcrypt-dev \
+ && apt-get purge -y --auto-remove libpq-dev \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/project
