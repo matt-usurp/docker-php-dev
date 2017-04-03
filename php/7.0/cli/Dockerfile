@@ -1,4 +1,4 @@
-FROM php:7.0.16-cli
+FROM php:7.0.17-cli
 
 RUN apt-get update -y \
  && apt-get install -y \
