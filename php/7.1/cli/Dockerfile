@@ -4,10 +4,11 @@ RUN apt-get update -y \
  && apt-get install -y \
       zsh \
       git \
+      nano \
+      wget \
       libicu-dev \
       libmcrypt-dev \
       libpq-dev \
- && rm -rf /var/lib/apt/lists/* \
 
  && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
  && sed -i 's~robbyrussell~kolo~g' ~/.zshrc \
@@ -25,6 +26,11 @@ RUN apt-get update -y \
       mcrypt \
       zip \
 
- && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/
+ && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
+
+ && apt-get purge --auto-remove libicu-dev \
+ && apt-get purge --auto-remove libmcrypt-dev \
+ && apt-get purge --auto-remove libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/project
