@@ -1,4 +1,4 @@
-FROM musurp/php:7.1.3-fpm
+FROM musurp/php:7.1.12-fpm
 
 RUN pecl install -o -f xdebug \
  && rm -rf /tmp/pear \

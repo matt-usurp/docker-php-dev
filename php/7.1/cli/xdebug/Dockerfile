@@ -1,4 +1,4 @@
-FROM musurp/php:7.1.3-cli
+FROM musurp/php:7.1.12-cli
 
 RUN pecl install -o -f xdebug \
  && rm -rf /tmp/pear \
