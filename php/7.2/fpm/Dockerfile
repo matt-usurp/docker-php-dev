@@ -19,7 +19,6 @@ RUN apt-get update -y \
       pdo_pgsql \
       pgsql \
       intl \
-      bcmath \
       mbstring \
       mcrypt \
       zip \
