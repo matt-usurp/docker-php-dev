@@ -19,6 +19,7 @@ RUN apt-get update -y \
       pdo_pgsql \
       pgsql \
       intl \
+      zlib \
       zip \
  && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
  && apt-get purge -y --auto-remove libicu-dev \
