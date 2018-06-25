@@ -17,6 +17,9 @@ The following versions are available:
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
 For example `musurp/php:7.1.16-cli` and `musurp/php-dev:7.2.6-fpm`.
 
+* https://hub.docker.com/r/musurp/php/
+* https://hub.docker.com/r/musurp/php-dev/
+
 ### Compiled Libraries
 
 The images are all compiled with (where possible and required) the following libraries.
