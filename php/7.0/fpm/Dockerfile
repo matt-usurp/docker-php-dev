@@ -17,5 +17,3 @@ RUN set -ex \
  && rm -fr /src \
  && apk del build-dependencies \
  && rm -rf /tmp/*
-
-WORKDIR /opt/project
