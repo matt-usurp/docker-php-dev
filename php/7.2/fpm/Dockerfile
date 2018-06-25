@@ -1,30 +1,17 @@
-FROM php:7.2.0-fpm
+FROM php:7.2.6-fpm-alpine
 
-RUN apt-get update -y \
- && apt-get install -y \
-      zsh \
-      git \
-      nano \
-      wget \
-      libicu-dev \
-      libmcrypt-dev \
-      libpq-dev \
- && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true \
- && sed -i 's~robbyrussell~kolo~g' ~/.zshrc \
- && sed -i 's/plugins=(git)/plugins=(composer symfony2)/g' /root/.zshrc \
- && curl -sS "https://getcomposer.org/installer?v=1.3.1" | php \
- && mv composer.phar /usr/bin/composer \
- && docker-php-ext-install \
-      pdo \
-      pdo_pgsql \
-      pgsql \
-      intl \
-      zlib \
-      zip \
- && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
- && apt-get purge -y --auto-remove libicu-dev \
- && apt-get purge -y --auto-remove libmcrypt-dev \
- && apt-get purge -y --auto-remove libpq-dev \
- && rm -rf /var/lib/apt/lists/*
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+RUN set -ex \
+ && apk update \
+ && apk add --no-cache make tree git curl icu postgresql-dev libxml2 \
+ && apk add --no-cache --virtual build-dependencies g++ autoconf icu-dev libxml2-dev \
+ && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
+ && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath \
+ && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+ && cd / \
+ && rm -fr /src \
+ && apk del build-dependencies \
+ && rm -rf /tmp/*
 
 WORKDIR /opt/project

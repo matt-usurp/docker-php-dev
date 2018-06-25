@@ -1,16 +1,25 @@
-FROM musurp/php:7.2.0-fpm
+FROM musurp/php:7.2.6-fpm
 
-RUN apt-get update -y \
- && apt-get install -y \
-      libicu-dev \
-      libmcrypt-dev \
-      libpq-dev \
- && rm -rf /var/lib/apt/lists/* \
- && pecl install -o -f xdebug \
- && rm -rf /tmp/pear \
- && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_enable=on"  >> /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_host=10.0.2.2" >> /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_connect_back=On" >> /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/xdebug.ini
+ENV PHP_XDEBUG_DEFAULT_ENABLE ${PHP_XDEBUG_DEFAULT_ENABLE:-1}
+ENV PHP_XDEBUG_REMOTE_ENABLE ${PHP_XDEBUG_REMOTE_ENABLE:-1}
+ENV PHP_XDEBUG_REMOTE_HOST ${PHP_XDEBUG_REMOTE_HOST:-"127.0.0.1"}
+ENV PHP_XDEBUG_REMOTE_PORT ${PHP_XDEBUG_REMOTE_PORT:-9000}
+ENV PHP_XDEBUG_REMOTE_AUTO_START ${PHP_XDEBUG_REMOTE_AUTO_START:-0}
+ENV PHP_XDEBUG_REMOTE_CONNECT_BACK ${PHP_XDEBUG_REMOTE_CONNECT_BACK:-1}
+ENV PHP_XDEBUG_IDEKEY ${PHP_XDEBUG_IDEKEY:-docker}
+ENV PHP_XDEBUG_PROFILER_ENABLE ${PHP_XDEBUG_PROFILER_ENABLE:-0}
+ENV PHP_XDEBUG_PROFILER_OUTPUT_DIR ${PHP_XDEBUG_PROFILER_OUTPUT_DIR:-"/tmp"}
+
+RUN set -ex \
+ && apk update \
+ && apk add --no-cache --virtual build-dependencies g++ autoconf \
+ && docker-php-source extract \
+ && pecl install xdebug \
+ && docker-php-ext-enable xdebug \
+ && docker-php-source delete \
+ && cd / \
+ && rm -fr /src \
+ && apk del build-dependencies \
+ && rm -rf /tmp/*
+
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug-env.ini
