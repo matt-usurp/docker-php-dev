@@ -9,7 +9,5 @@ RUN set -ex \
  && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
  && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
- && cd / \
- && rm -fr /src \
  && apk del build-dependencies \
- && rm -rf /tmp/*
+ && rm -rf /src /tmp/*

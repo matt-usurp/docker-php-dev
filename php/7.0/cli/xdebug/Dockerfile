@@ -17,9 +17,7 @@ RUN set -ex \
  && pecl install xdebug \
  && docker-php-ext-enable xdebug \
  && docker-php-source delete \
- && cd / \
- && rm -fr /src \
  && apk del build-dependencies \
- && rm -rf /tmp/*
+ && rm -rf /src /tmp/*
 
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug-env.ini
