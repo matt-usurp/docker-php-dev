@@ -1,4 +1,4 @@
-FROM php:7.2.6-fpm-alpine
+FROM php:7.2.7-fpm-alpine
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
