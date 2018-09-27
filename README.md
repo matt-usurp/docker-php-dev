@@ -12,10 +12,10 @@ The following versions are available:
 
 * `7.0` (currently targeting `7.0.30`)
 * `7.1` (currently targeting `7.1.19`)
-* `7.2` (currently targeting `7.2.7`)
+* `7.2` (currently targeting `7.2.10`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
-For example `musurp/php:7.1.19-cli` and `musurp/php-dev:7.2.7-fpm`.
+For example `musurp/php:7.1.19-cli` and `musurp/php-dev:7.2.10-fpm`.
 
 * https://hub.docker.com/r/musurp/php/
 * https://hub.docker.com/r/musurp/php-dev/
