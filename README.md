@@ -24,7 +24,9 @@ For example `musurp/php:7.1.22-cli` and `musurp/php-dev:7.2.10-fpm`.
 
 The images are all compiled with (where possible and required) the following libraries.
 
+* `opcache`
 * `xml`
+* `zip`
 * `intl`
 * `bcmath`
 * `mcrypt` (`7.1` and lower, replaced with `openssl`)
