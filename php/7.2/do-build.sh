@@ -13,36 +13,31 @@ green "Targeting php@${VERSION_FULL}"
 # Build the production and development versions.
 build () {
   newline
-  cyan "Building \"${IMAGE}\" @${TYPE}"
+  cyan "Building \"${IMAGE}\" @$1"
   docker build \
     -q \
     --compress \
-    --tag="${IMAGE}:${VERSION_FULL}-${TYPE}" \
-    --tag="${IMAGE}:${VERSION_MINOR}-${TYPE}" \
-    "${TYPE}"
+    --tag="${IMAGE}:${VERSION_FULL}-$1" \
+    --tag="${IMAGE}:${VERSION_MINOR}-$1" \
+    "$1"
 
   yellow " .. testing."
-  docker run -it "${IMAGE}:${VERSION_FULL}-${TYPE}" sh -c "${TEST}"
+  docker run -it "${IMAGE}:${VERSION_FULL}-$1" sh -c "$2"
 
   newline
-  cyan "Building \"${IMAGE_DEV}\" @${TYPE}"
+  cyan "Building \"${IMAGE_DEV}\" @$1"
   docker build \
     -q \
     --compress \
-    --tag="${IMAGE_DEV}:${VERSION_FULL}-${TYPE}" \
-    --tag="${IMAGE_DEV}:${VERSION_MINOR}-${TYPE}" \
-    "${TYPE}/xdebug"
+    --tag="${IMAGE_DEV}:${VERSION_FULL}-$1" \
+    --tag="${IMAGE_DEV}:${VERSION_MINOR}-$1" \
+    "$1/xdebug"
 
   yellow " .. testing."
-  docker run -it "${IMAGE_DEV}:${VERSION_FULL}-${TYPE}" sh -c "${TEST}"
+  docker run -it "${IMAGE_DEV}:${VERSION_FULL}-$1" sh -c "$2"
 }
 
-TYPE="cli"
-TEST="php -v"
-build
-
-TYPE="fpm"
-TEST="php-fpm -v"
-build
+build "cli" "php -v"
+build "fpm" "php-fpm -v"
 
 newline

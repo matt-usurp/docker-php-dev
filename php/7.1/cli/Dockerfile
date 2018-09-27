@@ -1,4 +1,4 @@
-FROM php:7.1.19-cli-alpine
+FROM php:7.1.22-cli-alpine
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
@@ -8,7 +8,8 @@ RUN set -ex \
  && apk add --no-cache --virtual build-dependencies g++ autoconf icu-dev libmcrypt-dev libxml2-dev \
  && docker-php-ext-configure mcrypt \
  && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
- && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath mcrypt \
+ && docker-php-ext-configure opcache --enable-opcache \
+ && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath mcrypt opcache \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
  && apk del build-dependencies \
  && rm -rf /src /tmp/*
