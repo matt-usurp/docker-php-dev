@@ -4,7 +4,7 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN set -ex \
  && apk update \
- && apk add --no-cache make tree git curl icu postgresql-dev libmcrypt libxml2 \
+ && apk add --no-cache make tree openssh-client git curl icu postgresql-dev libmcrypt libxml2 \
  && apk add --no-cache --virtual build-dependencies g++ autoconf icu-dev libmcrypt-dev libxml2-dev \
  && docker-php-ext-configure mcrypt \
  && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \

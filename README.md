@@ -46,3 +46,4 @@ All images will also come with a few really basic commands pre-installed for dev
 * `make`
 * `git`
 * `tree`
+* `openssl-client`
