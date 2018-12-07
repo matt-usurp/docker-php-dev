@@ -13,6 +13,7 @@ The following versions are available:
 * `7.0` (currently targeting `7.0.32`)
 * `7.1` (currently targeting `7.1.23`)
 * `7.2` (currently targeting `7.2.11`)
+* `7.3` (currently targeting `7.3.0`) (`RC6`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
 For example `musurp/php:7.1.23-cli` and `musurp/php-dev:7.2.11-fpm`.
@@ -29,7 +30,7 @@ The images are all compiled with (where possible and required) the following lib
 * `zip`
 * `intl`
 * `bcmath`
-* `mcrypt` (`7.1` and lower, replaced with `openssl`)
+* `mcrypt` (`<= 7.1`, `>` replaced with `openssl`)
 * `pdo`
 * `pgsql`
 
@@ -37,6 +38,7 @@ The images are all compiled with (where possible and required) the following lib
 
 Image sizes are typically between `70mb` and `80mb` compressed.
 Uncompressed the images sit at roughly double the size, last checked at `146mb`.
+As of `7.3` images are looking around `160mb` uncompressed.
 
 ### Additional Commands
 
