@@ -26,10 +26,10 @@ push_repo () {
 
 TYPE="cli"
 push_repo "${TYPE}" "${IMAGE}"
-#push_repo "${TYPE}" "${IMAGE_DEV}"
+push_repo "${TYPE}" "${IMAGE_DEV}"
 
 TYPE="fpm"
 push_repo "${TYPE}" "${IMAGE}"
-#push_repo "${TYPE}" "${IMAGE_DEV}"
+push_repo "${TYPE}" "${IMAGE_DEV}"
 
 newline

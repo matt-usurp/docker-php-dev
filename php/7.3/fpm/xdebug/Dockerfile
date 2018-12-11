@@ -14,7 +14,7 @@ RUN set -ex \
  && apk update \
  && apk add --no-cache --virtual build-dependencies g++ autoconf \
  && docker-php-source extract \
- && pecl install xdebug \
+ && pecl install xdebug-beta \
  && docker-php-ext-enable xdebug \
  && docker-php-source delete \
  && apk del build-dependencies \
