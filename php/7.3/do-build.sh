@@ -24,17 +24,17 @@ build () {
   yellow " .. testing."
   docker run -it "${IMAGE}:${VERSION_FULL}-$1" sh -c "$2"
 
-#  newline
-#  cyan "Building \"${IMAGE_DEV}\" @$1"
-#  docker build \
-#    -q \
-#    --compress \
-#    --tag="${IMAGE_DEV}:${VERSION_FULL}-$1" \
-#    --tag="${IMAGE_DEV}:${VERSION_MINOR}-$1" \
-#    "$1/xdebug"
-#
-#  yellow " .. testing."
-#  docker run -it "${IMAGE_DEV}:${VERSION_FULL}-$1" sh -c "$2"
+  newline
+  cyan "Building \"${IMAGE_DEV}\" @$1"
+  docker build \
+    -q \
+    --compress \
+    --tag="${IMAGE_DEV}:${VERSION_FULL}-$1" \
+    --tag="${IMAGE_DEV}:${VERSION_MINOR}-$1" \
+    "$1/xdebug"
+
+  yellow " .. testing."
+  docker run -it "${IMAGE_DEV}:${VERSION_FULL}-$1" sh -c "$2"
 }
 
 build "cli" "php -v"

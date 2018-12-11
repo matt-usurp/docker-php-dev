@@ -1,4 +1,4 @@
-FROM musurp/php:7.3-rc-fpm
+FROM musurp/php:7.3.0-fpm
 
 ENV PHP_XDEBUG_DEFAULT_ENABLE ${PHP_XDEBUG_DEFAULT_ENABLE:-1}
 ENV PHP_XDEBUG_REMOTE_ENABLE ${PHP_XDEBUG_REMOTE_ENABLE:-1}
@@ -14,7 +14,7 @@ RUN set -ex \
  && apk update \
  && apk add --no-cache --virtual build-dependencies g++ autoconf \
  && docker-php-source extract \
- && pecl install xdebug \
+ && pecl install xdebug-beta \
  && docker-php-ext-enable xdebug \
  && docker-php-source delete \
  && apk del build-dependencies \

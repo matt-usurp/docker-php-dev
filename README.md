@@ -10,13 +10,13 @@ The basic image is `alpine` and always will be, therefore the `-alpine` suffix i
 
 The following versions are available:
 
-* `7.0` (currently targeting `7.0.32`)
-* `7.1` (currently targeting `7.1.23`)
-* `7.2` (currently targeting `7.2.11`)
-* `7.3` (currently targeting `7.3.0`) (`RC6`)
+* `7.0` (currently targeting `7.0.33`) (`final`)
+* `7.1` (currently targeting `7.1.25`)
+* `7.2` (currently targeting `7.2.13`)
+* `7.3` (currently targeting `7.3.0`) (`stable`) (`xdebug @2.7.0-beta1`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
-For example `musurp/php:7.1.23-cli` and `musurp/php-dev:7.2.11-fpm`.
+For example `musurp/php:7.1.25-cli` and `musurp/php-dev:7.2.13-fpm`.
 
 * https://hub.docker.com/r/musurp/php/
 * https://hub.docker.com/r/musurp/php-dev/
