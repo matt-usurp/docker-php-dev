@@ -13,7 +13,7 @@ The following versions are available:
 * `7.0` (currently targeting `7.0.33`) (`final`)
 * `7.1` (currently targeting `7.1.26`)
 * `7.2` (currently targeting `7.2.14`)
-* `7.3` (currently targeting `7.3.1`) (`stable`) (`xdebug @2.7.0-beta1`)
+* `7.3` (currently targeting `7.3.1`) (`stable`) (`xdebug @v2.7.0rc1`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
 For example `musurp/php:7.1.26-cli` and `musurp/php-dev:7.2.14-fpm`.
