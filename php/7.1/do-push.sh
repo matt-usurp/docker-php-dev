@@ -24,12 +24,16 @@ push_repo () {
   push "$2:${VERSION_MINOR}-$1"
 }
 
-TYPE="cli"
-push_repo "${TYPE}" "${IMAGE}"
-push_repo "${TYPE}" "${IMAGE_DEV}"
+TAG="cli"
+push_repo "${TAG}" "${IMAGE}"
+push_repo "${TAG}" "${IMAGE_DEV}"
 
-TYPE="fpm"
-push_repo "${TYPE}" "${IMAGE}"
-push_repo "${TYPE}" "${IMAGE_DEV}"
+TAG="fpm"
+push_repo "${TAG}" "${IMAGE}"
+push_repo "${TAG}" "${IMAGE_DEV}"
+
+TAG="cli-supervisor"
+push_repo "${TAG}" "${IMAGE}"
+push_repo "${TAG}" "${IMAGE_DEV}"
 
 newline
