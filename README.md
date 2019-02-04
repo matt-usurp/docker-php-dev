@@ -49,3 +49,33 @@ All images will also come with a few really basic commands pre-installed for dev
 * `git`
 * `tree`
 * `openssl-client`
+
+### Supervisor
+
+The `cli` tagged images also have a variation that includes `supervisor` to assist with worker implementations.
+Obviously because of this the container will be larger and includes dependencies such as `python@2.7` and various bundling packages.
+
+```sh
+$ docker run musurp/php:7.3.1-cli-supervisor
+```
+
+The above will start a container with `supervisord` running in no daemon mode as its `--entrypoint`.
+By default it does not have a configuration file defined (or might read a default) so it is recommend that you specific a configuration file manually.
+This can be done by specifying additional arguments at runtime.
+
+```sh
+$ docker run musurp/php:7.3.1-cli-supervisor --configuration /srv/path/conf.conf
+```
+
+In `docker-compose` it would look like this:
+
+```yaml
+services:
+  worker:
+    image: musurp/php:7.3.1-cli-supervisor
+    command: --configuration /srv/path/conf.conf
+```
+
+I recommend having a separate supervisor specific image in your `docker-compose.yml` file for your workers.
+This means you can leave the workers running and manually restart the container when code changes are made.
+Just for clarification `docker-compose restart worker` can restart the container in isolation.
