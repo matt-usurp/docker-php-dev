@@ -7,6 +7,7 @@ The basic image is `alpine` and always will be, therefore the `-alpine` suffix i
 | --- | --- | --- |
 | `vanilla` | `musurp/php:x-cli` | `musurp/php:x-fpm` |
 | `xdebug` | `musurp/php-dev:x-cli` | `musurp/php-dev:x-fpm` |
+| `supervisor` | `musurp/php(-dev):x-cli-supervisor` | `n/a` |
 
 The following versions are available:
 
@@ -20,10 +21,6 @@ For example `musurp/php:7.1.26-cli` and `musurp/php-dev:7.2.14-fpm`.
 
 * https://hub.docker.com/r/musurp/php/
 * https://hub.docker.com/r/musurp/php-dev/
-
-Flavoured tags with additional applications installed:
-
-* `cli-supervisor` with `supervisor@>=3.3.3` (or latest on `apk`)
 
 ### Compiled Libraries
 
