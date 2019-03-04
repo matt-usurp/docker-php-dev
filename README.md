@@ -34,6 +34,7 @@ The images are all compiled with (where possible and required) the following lib
 * `mcrypt` (`<= 7.1`, `>` replaced with `openssl`)
 * `pdo`
 * `pgsql`
+* `sockets` (`>= 7.3.2, 7.2.15, 7.1.26, 7.0.33`)
 
 ### Sizes
 

@@ -9,7 +9,8 @@ RUN set -ex \
  && docker-php-ext-configure mcrypt \
  && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
  && docker-php-ext-configure opcache --enable-opcache \
- && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath mcrypt opcache \
+ && docker-php-ext-configure sockets --enable-sockets \
+ && docker-php-ext-install pgsql pdo_mysql pdo_pgsql intl zip bcmath mcrypt opcache sockets \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
  && apk del build-dependencies \
  && rm -rf /src /tmp/*
