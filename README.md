@@ -12,12 +12,12 @@ The basic image is `alpine` and always will be, therefore the `-alpine` suffix i
 The following versions are available:
 
 * `7.0` (currently targeting `7.0.33`) (`final`)
-* `7.1` (currently targeting `7.1.26`)
-* `7.2` (currently targeting `7.2.15`)
-* `7.3` (currently targeting `7.3.2`) (`xdebug @v2.7.0rc1`)
+* `7.1` (currently targeting `7.1.27`)
+* `7.2` (currently targeting `7.2.16`)
+* `7.3` (currently targeting `7.3.3`) (`xdebug @v2.7.0rc1`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
-For example `musurp/php:7.1.26-cli` and `musurp/php-dev:7.2.15-fpm`.
+For example `musurp/php:7.1.27-cli` and `musurp/php-dev:7.2.16-fpm`.
 
 * https://hub.docker.com/r/musurp/php/
 * https://hub.docker.com/r/musurp/php-dev/
@@ -34,7 +34,7 @@ The images are all compiled with (where possible and required) the following lib
 * `mcrypt` (`<= 7.1`, `>` replaced with `openssl`)
 * `pdo`
 * `pgsql`
-* `sockets` (`>= 7.3.2, 7.2.15, 7.1.26, 7.0.33`)
+* `sockets` (`>= 7.3.3, 7.2.16, 7.1.27, 7.0.33`)
 
 ### Sizes
 
@@ -58,7 +58,7 @@ The `cli` tagged images also have a variation that includes `supervisor` to assi
 Obviously because of this the container will be larger and includes dependencies such as `python@2.7` and various bundling packages.
 
 ```sh
-$ docker run musurp/php:7.3.2-cli-supervisor
+$ docker run musurp/php:7.3.3-cli-supervisor
 ```
 
 The above will start a container with `supervisord` running in no daemon mode as its `--entrypoint`.
@@ -66,7 +66,7 @@ By default it does not have a configuration file defined (or might read a defaul
 This can be done by specifying additional arguments at runtime.
 
 ```sh
-$ docker run musurp/php:7.3.2-cli-supervisor --configuration /srv/path/conf.conf
+$ docker run musurp/php:7.3.3-cli-supervisor --configuration /srv/path/conf.conf
 ```
 
 In `docker-compose` it would look like this:
@@ -74,7 +74,7 @@ In `docker-compose` it would look like this:
 ```yaml
 services:
   worker:
-    image: musurp/php:7.3.2-cli-supervisor
+    image: musurp/php:7.3.3-cli-supervisor
     command: --configuration /srv/path/conf.conf
 ```
 
