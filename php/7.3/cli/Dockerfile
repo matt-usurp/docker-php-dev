@@ -1,4 +1,4 @@
-FROM php:7.3.4-cli-alpine
+FROM php:7.3.5-cli-alpine
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
