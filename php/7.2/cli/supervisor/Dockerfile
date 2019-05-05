@@ -1,4 +1,4 @@
-FROM musurp/php:7.2.17-cli
+FROM musurp/php:7.2.18-cli
 
 RUN set -ex \
  && apk update \
