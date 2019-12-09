@@ -5,8 +5,8 @@ source $(dirname "$0")/../util-colours.sh
 IMAGE="musurp/php"
 IMAGE_DEV="musurp/php-dev"
 
-VERSION_FULL="7.2.25"
-VERSION_MINOR="7.2"
+VERSION_FULL="7.4.0"
+VERSION_MINOR="7.3"
 
 green "Targeting php@${VERSION_FULL}"
 
