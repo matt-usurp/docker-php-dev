@@ -48,11 +48,11 @@ jobs:
         run: docker build --compress --tag="$TAG_MINOR" --tag="$TAG_PATCH" "php/${{ matrix.minor }}/${{ matrix.flavour }}"
 
       - name: 'Smoke Test: CLI'
-        run: docker run -it --entrypoint "/bin/sh" "$TAG_MINOR" -c "php -v"
+        run: docker run --entrypoint "/bin/sh" "$TAG_MINOR" -c "php -v"
         if: matrix.flavour == 'cli'
 
       - name: 'Smoke Test: FPM'
-        run: docker run -it --entrypoint "/bin/sh" "$TAG_MINOR" -c "php-fpm -v"
+        run: docker run --entrypoint "/bin/sh" "$TAG_MINOR" -c "php-fpm -v"
         if: matrix.flavour == 'fpm'
 
       # Only done for master branch.
