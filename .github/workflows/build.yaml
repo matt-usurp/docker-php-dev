@@ -21,8 +21,21 @@ jobs:
           - 'cli'
           - 'fpm'
 
-    # Make sure we are only dealing with combinations of the same minor and patch versions.
-    if: startsWith(matrix.patch, matrix.minor)
+        # Manually exclude the miss-matching versions from the build matrix.
+        # I really wish there was a better way to set this up.
+        exclude:
+          - { minor: '7.4', patch: '7.3.12' }
+          - { minor: '7.4', patch: '7.2.25' }
+          - { minor: '7.3', patch: '7.4.0' }
+          - { minor: '7.3', patch: '7.2.25' }
+          - { minor: '7.2', patch: '7.4.0' }
+          - { minor: '7.2', patch: '7.3.12' }
+
+    # Make sure the patch belongs to the minor.
+    # A safety net assuming the above matrix exclude doesn't work.
+    # This would work but matrix doesn't work here, its evaluated before the matrix is expanded.
+    # https://github.community/t5/GitHub-Actions/Matrix-cannot-be-used-in-jobs-level-if/td-p/41048
+#    if: startsWith(matrix.patch, matrix.minor)
 
     env:
       TAG_MINOR: 'musurp/php:${{ matrix.minor }}-${{ matrix.flavour }}'
