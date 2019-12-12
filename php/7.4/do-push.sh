@@ -6,7 +6,7 @@ IMAGE="musurp/php"
 IMAGE_DEV="musurp/php-dev"
 
 VERSION_FULL="7.4.0"
-VERSION_MINOR="7.3"
+VERSION_MINOR="7.4"
 
 green "Pushing php@${VERSION_FULL}"
 newline
