@@ -14,9 +14,9 @@ jobs:
           - '7.3'
           - '7.2'
         patch:
-          - '7.4.0'
-          - '7.3.12'
-          - '7.2.25'
+          - '7.4.1'
+          - '7.3.13'
+          - '7.2.26'
         target:
           - 'cli'
           - 'fpm'
@@ -24,12 +24,12 @@ jobs:
         # Manually exclude the miss-matching versions from the build matrix.
         # Waiting for anchoring support so the duplication can be removed.
         exclude:
-          - { minor: '7.4', patch: '7.3.12' }
-          - { minor: '7.4', patch: '7.2.25' }
-          - { minor: '7.3', patch: '7.4.0' }
-          - { minor: '7.3', patch: '7.2.25' }
-          - { minor: '7.2', patch: '7.4.0' }
-          - { minor: '7.2', patch: '7.3.12' }
+          - { minor: '7.4', patch: '7.3.13' }
+          - { minor: '7.4', patch: '7.2.26' }
+          - { minor: '7.3', patch: '7.4.1' }
+          - { minor: '7.3', patch: '7.2.26' }
+          - { minor: '7.2', patch: '7.4.1' }
+          - { minor: '7.2', patch: '7.3.13' }
 
     # This would work but matrix doesn't work here, its evaluated before the matrix is expanded.
     # https://github.community/t5/GitHub-Actions/Matrix-cannot-be-used-in-jobs-level-if/td-p/41048
@@ -85,9 +85,9 @@ jobs:
           - '7.3'
           - '7.2'
         patch:
-          - '7.4.0'
-          - '7.3.12'
-          - '7.2.25'
+          - '7.4.1'
+          - '7.3.13'
+          - '7.2.26'
         target:
           - 'cli'
           - 'fpm'
@@ -95,12 +95,12 @@ jobs:
         # Manually exclude the miss-matching versions from the build matrix.
         # Waiting for anchoring support so the duplication can be removed.
         exclude:
-          - { minor: '7.4', patch: '7.3.12' }
-          - { minor: '7.4', patch: '7.2.25' }
-          - { minor: '7.3', patch: '7.4.0' }
-          - { minor: '7.3', patch: '7.2.25' }
-          - { minor: '7.2', patch: '7.4.0' }
-          - { minor: '7.2', patch: '7.3.12' }
+          - { minor: '7.4', patch: '7.3.13' }
+          - { minor: '7.4', patch: '7.2.26' }
+          - { minor: '7.3', patch: '7.4.1' }
+          - { minor: '7.3', patch: '7.2.26' }
+          - { minor: '7.2', patch: '7.4.1' }
+          - { minor: '7.2', patch: '7.3.13' }
 
     env:
       TAG_MINOR: 'musurp/php-dev:${{ matrix.minor }}-${{ matrix.target }}'
@@ -152,9 +152,9 @@ jobs:
           - '7.3'
           - '7.2'
         patch:
-          - '7.4.0'
-          - '7.3.12'
-          - '7.2.25'
+          - '7.4.1'
+          - '7.3.13'
+          - '7.2.26'
         target:
           - 'cli'
         flavour:
@@ -163,12 +163,12 @@ jobs:
         # Manually exclude the miss-matching versions from the build matrix.
         # Waiting for anchoring support so the duplication can be removed.
         exclude:
-          - { minor: '7.4', patch: '7.3.12' }
-          - { minor: '7.4', patch: '7.2.25' }
-          - { minor: '7.3', patch: '7.4.0' }
-          - { minor: '7.3', patch: '7.2.25' }
-          - { minor: '7.2', patch: '7.4.0' }
-          - { minor: '7.2', patch: '7.3.12' }
+          - { minor: '7.4', patch: '7.3.13' }
+          - { minor: '7.4', patch: '7.2.26' }
+          - { minor: '7.3', patch: '7.4.1' }
+          - { minor: '7.3', patch: '7.2.26' }
+          - { minor: '7.2', patch: '7.4.1' }
+          - { minor: '7.2', patch: '7.3.13' }
 
     env:
       TAG_MINOR: 'musurp/php:${{ matrix.minor }}-${{ matrix.target }}-${{ matrix.flavour }}'
@@ -220,9 +220,9 @@ jobs:
           - '7.3'
           - '7.2'
         patch:
-          - '7.4.0'
-          - '7.3.12'
-          - '7.2.25'
+          - '7.4.1'
+          - '7.3.13'
+          - '7.2.26'
         target:
           - 'cli'
         flavour:
@@ -231,12 +231,12 @@ jobs:
         # Manually exclude the miss-matching versions from the build matrix.
         # Waiting for anchoring support so the duplication can be removed.
         exclude:
-          - { minor: '7.4', patch: '7.3.12' }
-          - { minor: '7.4', patch: '7.2.25' }
-          - { minor: '7.3', patch: '7.4.0' }
-          - { minor: '7.3', patch: '7.2.25' }
-          - { minor: '7.2', patch: '7.4.0' }
-          - { minor: '7.2', patch: '7.3.12' }
+          - { minor: '7.4', patch: '7.3.13' }
+          - { minor: '7.4', patch: '7.2.26' }
+          - { minor: '7.3', patch: '7.4.1' }
+          - { minor: '7.3', patch: '7.2.26' }
+          - { minor: '7.2', patch: '7.4.1' }
+          - { minor: '7.2', patch: '7.3.13' }
 
     env:
       TAG_MINOR: 'musurp/php-dev:${{ matrix.minor }}-${{ matrix.target }}-${{ matrix.flavour }}'

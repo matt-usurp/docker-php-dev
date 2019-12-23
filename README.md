@@ -13,12 +13,12 @@ The following versions are available:
 
 * `7.0` (currently targeting `7.0.33`) (`final`)
 * `7.1` (currently targeting `7.1.32`) (`final`)
-* `7.2` (currently targeting `7.2.25`)
-* `7.3` (currently targeting `7.3.12`)
-* `7.4` (currently targeting `7.4.0`)
+* `7.2` (currently targeting `7.2.26`)
+* `7.3` (currently targeting `7.3.13`)
+* `7.4` (currently targeting `7.4.1`)
 
 Alternatively for more refined version management (this is recommended) the images mentioned above have been tagged with the patch version also.
-For example `musurp/php:7.1.32-cli` and `musurp/php-dev:7.2.25-fpm`.
+For example `musurp/php:7.1.32-cli` and `musurp/php-dev:7.2.26-fpm`.
 
 * https://hub.docker.com/r/musurp/php/
 * https://hub.docker.com/r/musurp/php-dev/
@@ -59,7 +59,7 @@ The `cli` tagged images also have a variation that includes `supervisor` to assi
 Obviously because of this the container will be larger and includes dependencies such as `python@2.7` and various bundling packages.
 
 ```sh
-$ docker run musurp/php:7.4.0-cli-supervisor
+$ docker run musurp/php:7.4.1-cli-supervisor
 ```
 
 The above will start a container with `supervisord` running in no daemon mode as its `--entrypoint`.
@@ -67,7 +67,7 @@ By default it does not have a configuration file defined (or might read a defaul
 This can be done by specifying additional arguments at runtime.
 
 ```sh
-$ docker run musurp/php:7.4.0-cli-supervisor --configuration /srv/path/conf.conf
+$ docker run musurp/php:7.4.1-cli-supervisor --configuration /srv/path/conf.conf
 ```
 
 In `docker-compose` it would look like this:
@@ -75,7 +75,7 @@ In `docker-compose` it would look like this:
 ```yaml
 services:
   worker:
-    image: musurp/php:7.4.0-cli-supervisor
+    image: musurp/php:7.4.1-cli-supervisor
     command: --configuration /srv/path/conf.conf
 ```
 
